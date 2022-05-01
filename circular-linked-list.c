@@ -28,7 +28,7 @@ int insertNode(listNode* h, int key);	//노드를 오름차순으로 추가
 int deleteNode(listNode* h, int key);	//입력받은 key 값을 가지는 노드 제거
 
 void printList(listNode* h);			//리스트 print
-listNode* SortList(listNode* h);				//오름차순으로 정렬	
+listNode* SortList(listNode* h);		//오름차순으로 정렬	
 
 int main(void){
 	printf("[----- [장정환]  [2021076029] -----]");
@@ -305,8 +305,8 @@ int deleteNode(listNode* h, int key){
 }
 
 void printList(listNode* h) {
-	int i = 0;
-	listNode* p;
+	int i = 0;		//노드 번호를 나타낼 변수
+	listNode* p;	//리스트상의 노드를 가리킬 포인터
 
 	printf("\n---PRINT\n");
 
@@ -317,7 +317,7 @@ void printList(listNode* h) {
 	//처음 노드를 가리키도록 초기화
 	p = h->rlink;
 
-	while(p != NULL && p != h) {
+	while(p != NULL && p != h) {	//리스트를 순서대로 출력 
 		printf("[ [%d]=%d ] ", i, p->key);
 		p = p->rlink;
 		i++;
@@ -332,7 +332,7 @@ void printList(listNode* h) {
 
 	i = 0;
 	p = h->rlink;
-	while(p != NULL && p != h) {
+	while(p != NULL && p != h) {	//리스트 주소를 포함하여 순서대로 출력 
 		printf("[ [%d]=%d ] [llink]=%p, [node]=%p, [rlink]=%p\n", i, p->key, p->llink, p, p->rlink);
 		p = p->rlink;
 		i++;
@@ -358,7 +358,6 @@ listNode* SortList(listNode* h){
 		insertNode(hh,n->key);
 		n=n->rlink;
 	}
-	printf("6");
 	/*기존 리스트 해제*/
 	freeList(h);
 	return hh;
